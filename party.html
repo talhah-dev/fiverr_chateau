@@ -2,38 +2,41 @@
 <html lang="de">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Château Weatherford — Parties, Thoughts & Questions</title>
-  <meta name="description" content="A quiet record of gatherings, reflections, and questions — kept intentionally and shared gently." />
-  <meta name="robots" content="index,follow" />
+    <title>Château Weatherford — Parties, Thoughts & Questions</title>
+    <meta name="description"
+        content="A quiet record of gatherings, reflections, and questions — kept intentionally and shared gently." />
+    <meta name="robots" content="index,follow" />
 
-  <link rel="canonical" href="https://your-domain.com/" />
-  <meta name="theme-color" content="#000000" />
+    <link rel="canonical" href="https://your-domain.com/" />
+    <meta name="theme-color" content="#000000" />
 
-  <link rel="icon" href="/docs/assets/images/logo.png" type="image/png" />
+    <link rel="icon" href="/docs/assets/images/logo.png" type="image/png" />
 
-  <meta property="og:title" content="Château Weatherford — Parties, Thoughts & Questions" />
-  <meta property="og:description" content="A quiet record of gatherings, reflections, and questions — kept intentionally and shared gently." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://your-domain.com/" />
-  <meta property="og:image" content="https://your-domain.com/docs/assets/images/og-image.jpg" />
-  <meta property="og:image:alt" content="Château Weatherford" />
+    <meta property="og:title" content="Château Weatherford — Parties, Thoughts & Questions" />
+    <meta property="og:description"
+        content="A quiet record of gatherings, reflections, and questions — kept intentionally and shared gently." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://your-domain.com/" />
+    <meta property="og:image" content="https://your-domain.com/docs/assets/images/og-image.jpg" />
+    <meta property="og:image:alt" content="Château Weatherford" />
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Château Weatherford — Parties, Thoughts & Questions" />
-  <meta name="twitter:description" content="A quiet record of gatherings, reflections, and questions — kept intentionally and shared gently." />
-  <meta name="twitter:image" content="https://your-domain.com/docs/assets/images/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Château Weatherford — Parties, Thoughts & Questions" />
+    <meta name="twitter:description"
+        content="A quiet record of gatherings, reflections, and questions — kept intentionally and shared gently." />
+    <meta name="twitter:image" content="https://your-domain.com/docs/assets/images/og-image.jpg" />
 
-  <link rel="stylesheet" href="/docs/Style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/docs/Style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.1/dist/lenis.css" />
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.1/dist/lenis.css" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 </head>
 
 
@@ -239,13 +242,11 @@
 
                 </div>
 
-                <form name="comments" method="POST" data-netlify="true" class="border border-emerald-500/20 p-8"
-                    data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                    <input type="hidden" name="form-name" value="comments" />
+                <form method="POST" action="./netlify/functions/submit-comment"
+                    class="border border-emerald-500/20 p-8">
+                    <input type="hidden" name="slug" value="winter-gathering" />
 
-                    <h3 class="font-aghram text-2xl text-emerald-300 mb-8 text-center">
-                        Leave a Comment
-                    </h3>
+                    <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off" />
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div>
@@ -265,9 +266,6 @@
                         <label class="block font-catamaran text-sm text-gray-400 mb-2">Comment</label>
                         <textarea name="comment" rows="6" required
                             class="w-full bg-black border border-emerald-500/30 px-4 py-3 text-gray-200 outline-none focus:border-emerald-400 transition"></textarea>
-                        <p class="font-catamaran text-xs text-gray-500 mt-3">
-                            Keep it kind. Thoughtful words only.
-                        </p>
                     </div>
 
                     <div class="text-center">
@@ -277,7 +275,6 @@
                             Post Comment
                         </button>
                     </div>
-
                 </form>
 
             </div>
