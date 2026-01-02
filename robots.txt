@@ -1,12 +1,4 @@
 User-agent: *
 Allow: /
 
-# Block technical or non-indexable files
-Disallow: /docs/
-Disallow: /.git/
-
-# Optional: block duplicate or utility pages if needed
-# Disallow: /blog-detail
-
-# Sitemap
-Sitemap: https://www.nuagecomparateur.fr/sitemap.xml
+Sitemap: https://your-domain.com/sitemap.xml
