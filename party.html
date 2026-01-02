@@ -215,7 +215,7 @@
                     Comments
                 </h2>
 
-                <div class="space-y-8 mb-16">
+                <div id="comments" class="space-y-8 mb-16">
 
                     <div class="border border-emerald-500/20 p-6" data-aos="fade-up" data-aos-duration="900">
                         <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-3">
@@ -242,10 +242,9 @@
 
                 </div>
 
-                <form method="POST" action="./netlify/functions/submit-comment"
+                <form method="POST" action="/.netlify/functions/submit-comment"
                     class="border border-emerald-500/20 p-8">
                     <input type="hidden" name="slug" value="winter-gathering" />
-
                     <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off" />
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -287,6 +286,58 @@
 
     <!-- FOOTER -->
     <div id="footer"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const commentsContainer = document.getElementById("comments");
+            if (!commentsContainer) return;
+
+            const slugInput = document.querySelector('input[name="slug"]');
+            if (!slugInput) return;
+
+            const slug = slugInput.value;
+            const commentsUrl = `/comments/${slug}.json`;
+
+            try {
+                const res = await fetch(commentsUrl);
+                if (!res.ok) return;
+
+                const comments = await res.json();
+                if (!Array.isArray(comments) || comments.length === 0) return;
+
+                commentsContainer.innerHTML = `
+      <h3 class="font-aghram text-3xl text-emerald-300 mb-8">
+        Comments
+      </h3>
+    `;
+
+                comments.forEach(comment => {
+                    const el = document.createElement("div");
+                    el.className = "border border-emerald-500/20 p-6";
+
+                    el.innerHTML = `
+        <div class="flex items-center justify-between mb-3">
+          <p class="font-aghram text-xl text-emerald-300">
+            ${comment.name}
+          </p>
+          <span class="text-sm text-gray-400">
+            ${new Date(comment.date).toLocaleDateString()}
+          </span>
+        </div>
+        <p class="font-catamaran text-gray-300 leading-relaxed">
+          ${comment.comment}
+        </p>
+      `;
+
+                    commentsContainer.appendChild(el);
+                });
+
+            } catch (err) {
+                console.error("Failed to load comments", err);
+            }
+        });
+
+    </script>
 
 
     <!-- Scripts -->
