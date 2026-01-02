@@ -5,52 +5,37 @@ exports.handler = async (event) => {
         }
 
         const params = new URLSearchParams(event.body || "");
+        const question = (params.get("question") || "").trim();
         const name = (params.get("name") || "").trim();
-        const email = (params.get("email") || "").trim();
-        const comment = (params.get("comment") || "").trim();
-        const slug = (params.get("slug") || "").trim();
         const website = (params.get("website") || "").trim();
 
-        if (website) {
-            return { statusCode: 200, body: "OK" };
+        if (website) return { statusCode: 200, body: "OK" };
+
+        if (!question || question.length > 5000) {
+            return { statusCode: 400, body: "Question is required (max 5000 chars)." };
         }
 
-        if (!slug || slug.length > 120) {
-            return { statusCode: 400, body: "Missing or invalid slug." };
-        }
-
-        if (!name || name.length > 80) {
-            return { statusCode: 400, body: "Name is required (max 80 chars)." };
-        }
-
-        if (!comment || comment.length > 3000) {
-            return { statusCode: 400, body: "Comment is required (max 3000 chars)." };
-        }
-
-        const safeEmail = email.length > 120 ? "" : email;
-
-        const newComment = {
+        const entry = {
             id: cryptoRandomId(),
-            name,
-            email: safeEmail,
-            comment,
-            createdAt: new Date().toISOString()
+            name: name ? name.slice(0, 80) : "Anonymous",
+            question,
+            createdAt: new Date().toISOString(),
+            response: ""
         };
 
         const token = process.env.GITHUB_TOKEN;
         const repo = process.env.GITHUB_REPO;
         const branch = process.env.GITHUB_BRANCH || "main";
-        const commentsDir = process.env.COMMENTS_DIR || "src/_data/comments";
+        const questionsDir = process.env.QUESTIONS_DIR || "docs/questions";
+        const filePath = `${questionsDir}/questions.json`;
 
         if (!token || !repo) {
             return { statusCode: 500, body: "Missing GitHub environment variables." };
         }
 
-        const filePath = `${commentsDir}/${slug}.json`;
-
         const ghHeaders = {
             Authorization: `Bearer ${token}`,
-            "User-Agent": "netlify-comments",
+            "User-Agent": "netlify-questions",
             Accept: "application/vnd.github+json"
         };
 
@@ -76,18 +61,17 @@ exports.handler = async (event) => {
             return { statusCode: 500, body: `GitHub read error: ${errText}` };
         }
 
-        existing.push(newComment);
+        existing.push(entry);
 
         const updatedJson = JSON.stringify(existing, null, 2);
         const encoded = Buffer.from(updatedJson, "utf8").toString("base64");
 
         const putUrl = `https://api.github.com/repos/${repo}/contents/${encodeURIComponent(filePath)}`;
         const putBody = {
-            message: `Add comment to ${slug}`,
+            message: `Add question`,
             content: encoded,
             branch
         };
-
         if (sha) putBody.sha = sha;
 
         const putRes = await fetch(putUrl, {
@@ -103,9 +87,7 @@ exports.handler = async (event) => {
 
         return {
             statusCode: 303,
-            headers: {
-                Location: `/thank-you.html`
-            },
+            headers: { Location: `/thank-you.html` },
             body: ""
         };
     } catch (e) {
