@@ -3,10 +3,10 @@ const lenis = new Lenis({
 });
 
 
-AOS.init({
-  once: true,
-  duration: 1000
-});
+// AOS.init({
+//   once: true,
+//   duration: 1000
+// });
 
 
 // components
@@ -18,7 +18,7 @@ loader.innerHTML = `
   <div id="siteLoader" class="fixed inset-0 z-[99999] bg-black flex items-center justify-center">
   <div class="text-center px-6">
     <div class="flex items-center justify-center gap-3 mb-6">
-      <span class="font-aghram text-3xl md:text-4xl tracking-wide text-emerald-300">
+      <span class="font-aghram text-lg md:text-3xl tracking-wide text-[var(--cw-green)]">
         Château Weatherford
       </span>
     </div>

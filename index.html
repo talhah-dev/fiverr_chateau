@@ -36,7 +36,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.1/dist/lenis.css" />
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <!-- <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" /> -->
 </head>
 
 
@@ -49,8 +49,8 @@
     <div id="loader"></div>
 
     <!-- Back to Top Button -->
-    <button id="backToTop"
-        class="fixed bottom-6 right-6 z-50 h-12 w-12 rounded-full bg-slate-900 text-white shadow-lg opacity-0 pointer-events-none translate-y-3 transition-all duration-300 hover:opacity-90">
+ <button id="backToTop"
+        class="fixed bottom-6 right-6 z-50 h-12 w-12 rounded-full bg-[#161414] text-[#8fc2a7] shadow-lg opacity-0 pointer-events-none translate-y-3 transition-all duration-300 hover:opacity-90">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
@@ -81,15 +81,15 @@
     <!-- Navbar -->
     <div id="navbar"></div>
 
-    <section class="w-full min-h-screen flex items-center justify-center bg-black text-white">
+    <section class="w-full md:pt-40 pt-28 flex items-center justify-center  text-white">
         <div class="max-w-7xl w-full mx-auto px-6 text-center">
 
-            <h1 class="font-aghram text-5xl md:text-7xl lg:text-8xl tracking-wide text-emerald-300 mb-8"
+            <h1 class="font-aghram text-3xl md:text-5xl !leading-[2] tracking-wide text-[var(--cw-green)] mb-8"
                 data-aos="fade-up" data-aos-duration="1200">
                 Château Weatherford
             </h1>
 
-            <p class="font-catamaran text-lg md:text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+            <p class="font-catamaran text-lg md:text-xl lg:text-2xl text-[#fffef8] max-w-3xl mx-auto leading-relaxed"
                 data-aos="fade-up" data-aos-delay="200" data-aos-duration="1200">
                 Welcome to my humble Internet abode where I publish memories and ruminations.
                 If you found this place, you must be pretty special.
@@ -98,39 +98,133 @@
         </div>
     </section>
 
+    <!-- Table of Contents -->
+    <section class="w-full text-[var(--cw-cream)] py-20">
+        <div class="max-w-7xl w-full mx-auto px-6">
+            <div class="max-w-3xl mx-auto">
 
-    <section class="w-full bg-black text-white py-24">
+                <nav aria-label="Table of contents" class="space-y-7 md:space-y-12">
+
+                    <a href="/about.html" class="group flex items-baseline gap-4">
+                        <span class="font-aghram md:text-xl text-[var(--cw-green)]">
+                            About
+                        </span>
+
+                        <span
+                            class="flex-1 border-b border-dotted border-[rgba(143,194,167,0.6)] translate-y-[-4px]"></span>
+
+                        <span class="font-aghram text-xl md:text-2xl text-[var(--cw-green)]">
+                            I
+                        </span>
+                    </a>
+
+                    <a href="/parties.html" class="group flex items-baseline gap-4">
+                        <span class="font-aghram md:text-xl text-[var(--cw-green)]">
+                            Parties
+                        </span>
+
+                        <span
+                            class="flex-1 border-b border-dotted border-[rgba(143,194,167,0.6)] translate-y-[-4px]"></span>
+
+                        <span class="font-aghram text-xl md:text-2xl text-[var(--cw-green)]">
+                            II
+                        </span>
+                    </a>
+
+                    <a href="/thoughts.html" class="group flex items-baseline gap-4">
+                        <span class="font-aghram md:text-xl text-[var(--cw-green)]">
+                            Thoughts
+                        </span>
+
+                        <span
+                            class="flex-1 border-b border-dotted border-[rgba(143,194,167,0.6)] translate-y-[-4px]"></span>
+
+                        <span class="font-aghram text-xl md:text-2xl text-[var(--cw-green)]">
+                            III
+                        </span>
+                    </a>
+
+                    <a href="/questions.html" class="group flex items-baseline gap-4">
+                        <span class="font-aghram md:text-xl text-[var(--cw-green)]">
+                            Questions
+                        </span>
+
+                        <span
+                            class="flex-1 border-b border-dotted border-[rgba(143,194,167,0.6)] translate-y-[-4px]"></span>
+
+                        <span class="font-aghram text-xl md:text-2xl text-[var(--cw-green)]">
+                            IV
+                        </span>
+                    </a>
+
+                    <a href="/gallery.html" class="group flex items-baseline gap-4">
+                        <span class="font-aghram md:text-xl text-[var(--cw-green)]">
+                            Gallery
+                        </span>
+
+                        <span
+                            class="flex-1 border-b border-dotted border-[rgba(143,194,167,0.6)] translate-y-[-4px]"></span>
+
+                        <span class="font-aghram text-xl md:text-2xl text-[var(--cw-green)]">
+                            V
+                        </span>
+                    </a>
+
+                    <a href="/tags.html" class="group flex items-baseline gap-4">
+                        <span class="font-aghram md:text-xl text-[var(--cw-green)]">
+                            Tags
+                        </span>
+
+                        <span
+                            class="flex-1 border-b border-dotted border-[rgba(143,194,167,0.6)] translate-y-[-4px]"></span>
+
+                        <span class="font-aghram text-xl md:text-2xl text-[var(--cw-green)]">
+                            VI
+                        </span>
+                    </a>
+
+                </nav>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="w-full  text-white py-24">
         <div class="max-w-7xl w-full mx-auto px-6">
 
-            <h2 class="font-aghram text-4xl md:text-5xl text-emerald-300 mb-12 text-center" data-aos="fade-up"
+            <h2 class="font-aghram text-2xl md:text-3xl text-[var(--cw-green)] mb-12 text-center" data-aos="fade-up"
                 data-aos-duration="1100">
                 Recent Parties
             </h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
 
-                <a href="#" class="block border border-emerald-500/30 p-6 hover:border-emerald-400 transition"
+                <a href="/party.html"
+                    class="block border border-emerald-500/30 p-6 hover:border-[color:var(--cw-green)] transition"
                     data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
-                    <h3 class="font-aghram text-2xl text-emerald-300 mb-2">
+                    <h3 class="font-aghram md:text-lg text-[var(--cw-green)] mb-7">
                         Winter Gathering
                     </h3>
                     <p class="font-catamaran text-gray-400 text-sm mb-4">
                         January 1, 2026 · #Party #Friends
                     </p>
-                    <p class="font-catamaran text-gray-300 leading-relaxed">
+                    <p class="font-catamaran text-[#fffef8] leading-relaxed">
                         A quiet evening filled with laughter, candles, and too much dessert.
                     </p>
                 </a>
 
-                <a href="#" class="block border border-emerald-500/30 p-6 hover:border-emerald-400 transition"
+                <a href="/party.html"
+                    class="block border border-emerald-500/30 p-6 hover:border-[color:var(--cw-green)] transition"
                     data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                    <h3 class="font-aghram text-2xl text-emerald-300 mb-2">
+                    <h3 class="font-aghram md:text-lg text-[var(--cw-green)] mb-7">
                         Late Night Baking
                     </h3>
                     <p class="font-catamaran text-gray-400 text-sm mb-4">
                         December 18, 2025 · #Party #Baking
                     </p>
-                    <p class="font-catamaran text-gray-300 leading-relaxed">
+                    <p class="font-catamaran text-[#fffef8] leading-relaxed">
                         Flour everywhere, music too loud, and something burning in the oven.
                     </p>
                 </a>
@@ -141,57 +235,60 @@
     </section>
 
 
-    <section class="w-full bg-black text-white py-24">
+    <section class="w-full  text-white py-24">
         <div class="max-w-7xl w-full mx-auto px-6">
 
-            <h2 class="font-aghram text-4xl md:text-5xl text-emerald-300 mb-12 text-center" data-aos="fade-up"
+            <h2 class="font-aghram text-2xl md:text-3xl text-[var(--cw-green)] mb-12 text-center" data-aos="fade-up"
                 data-aos-duration="1100">
                 Recent Thoughts
             </h2>
 
             <div class="max-w-4xl mx-auto space-y-8">
 
-                <a href="#" class="block border border-emerald-500/30 p-6 hover:border-emerald-400 transition"
+                <a href="/thought.html"
+                    class="block border border-emerald-500/30 p-6 hover:border-[color:var(--cw-green)] transition"
                     data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                     <div class="flex items-start justify-between gap-6">
-                        <h3 class="font-aghram text-2xl text-emerald-300">
+                        <h3 class="font-aghram md:text-lg text-sm leading-[2.5] text-[var(--cw-green)]">
                             On Quiet Mornings
                         </h3>
                         <span class="font-catamaran text-sm text-gray-400 whitespace-nowrap">
                             Jan 1, 2026
                         </span>
                     </div>
-                    <p class="font-catamaran text-gray-300 leading-relaxed mt-3">
+                    <p class="font-catamaran text-[#fffef8] leading-relaxed mt-5">
                         Some mornings feel like a blank page—no noise, no rush, just space to think.
                     </p>
                 </a>
 
-                <a href="#" class="block border border-emerald-500/30 p-6 hover:border-emerald-400 transition"
+                <a href="/thought.html"
+                    class="block border border-emerald-500/30 p-6 hover:border-[color:var(--cw-green)] transition"
                     data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
                     <div class="flex items-start justify-between gap-6">
-                        <h3 class="font-aghram text-2xl text-emerald-300">
+                        <h3 class="font-aghram md:text-lg text-sm leading-[2.5] text-[var(--cw-green)]">
                             A Note About Time
                         </h3>
                         <span class="font-catamaran text-sm text-gray-400 whitespace-nowrap">
                             Dec 21, 2025
                         </span>
                     </div>
-                    <p class="font-catamaran text-gray-300 leading-relaxed mt-3">
+                    <p class="font-catamaran text-[#fffef8] leading-relaxed mt-5">
                         Time moves differently when you stop trying to chase it.
                     </p>
                 </a>
 
-                <a href="#" class="block border border-emerald-500/30 p-6 hover:border-emerald-400 transition"
+                <a href="/thought.html"
+                    class="block border border-emerald-500/30 p-6 hover:border-[color:var(--cw-green)] transition"
                     data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
                     <div class="flex items-start justify-between gap-6">
-                        <h3 class="font-aghram text-2xl text-emerald-300">
+                        <h3 class="font-aghram md:text-lg text-sm leading-[2.5] text-[var(--cw-green)]">
                             The Beauty of Small Rituals
                         </h3>
                         <span class="font-catamaran text-sm text-gray-400 whitespace-nowrap">
                             Dec 8, 2025
                         </span>
                     </div>
-                    <p class="font-catamaran text-gray-300 leading-relaxed mt-3">
+                    <p class="font-catamaran text-[#fffef8] leading-relaxed mt-5">
                         Tea, a candle, a song—tiny rituals that quietly hold a day together.
                     </p>
                 </a>
@@ -202,25 +299,25 @@
     </section>
 
 
-    <section class="w-full bg-black text-white py-32">
+    <section class="w-full  text-white py-32">
         <div class="max-w-7xl w-full mx-auto px-6 text-center">
 
-            <h2 class="font-aghram text-4xl md:text-5xl text-emerald-300 mb-6" data-aos="fade-up"
+            <h2 class="font-aghram text-2xl md:text-3xl text-[var(--cw-green)] mb-10" data-aos="fade-up"
                 data-aos-duration="1100">
                 Ask Me Anything
             </h2>
 
-            <p class="font-catamaran text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-12 leading-relaxed"
+            <p class="font-catamaran text-lg md:text-xl text-[#fffef8] max-w-2xl mx-auto mb-12 leading-relaxed"
                 data-aos="fade-up" data-aos-delay="200" data-aos-duration="1100">
                 Have a question, a curiosity, or a thought you’d like me to respond to?
                 I read every submission and reply when the moment feels right.
             </p>
 
-            <a href="#"
-                class="inline-flex items-center gap-3 border border-emerald-500 px-8 py-4 font-aghram text-xl text-emerald-300 hover:bg-emerald-500 hover:text-black transition"
+            <a href="/questions.html"
+                class="inline-flex items-center gap-3 border border-emerald-500 px-8 py-4 font-aghram text-sm text-[var(--cw-green)] hover:bg-emerald-500 hover:text-black transition"
                 data-aos="zoom-in" data-aos-delay="350" data-aos-duration="900">
-                <i class="fa-solid fa-question"></i>
                 Submit a Question
+                <i class="fa-solid fa-question"></i>
             </a>
 
         </div>
