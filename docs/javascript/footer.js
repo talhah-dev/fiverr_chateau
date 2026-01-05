@@ -9,7 +9,7 @@ footer.innerHTML = `
 
         <!-- Navigation -->
         <div>
-          <p class="font-bold capitalize text-white font-catamaran mb-5">
+          <p class="font-bold capitalize text-[#fffef8] font-catamaran mb-5">
             Navigation
           </p>
           <ul class="space-y-4 font-catamaran">
@@ -22,7 +22,7 @@ footer.innerHTML = `
 
         <!-- Collections -->
         <div>
-          <p class="font-bold capitalize text-white font-catamaran mb-5">
+          <p class="font-bold capitalize text-[#fffef8] font-catamaran mb-5">
             Collections
           </p>
           <ul class="space-y-4 font-catamaran">
