@@ -47,7 +47,7 @@
     <div id="loader"></div>
 
     <!-- Back to Top Button -->
- <button id="backToTop"
+    <button id="backToTop"
         class="fixed bottom-6 right-6 z-50 h-12 w-12 rounded-full bg-[#161414] text-[#8fc2a7] shadow-lg opacity-0 pointer-events-none translate-y-3 transition-all duration-300 hover:opacity-90">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
@@ -165,61 +165,69 @@
     </section>
 
 
-    <section class="w-full  text-white py-28 border-t border-emerald-500/20">
+    <section class="w-full text-white py-28 border-t border-emerald-500/20">
         <div class="max-w-7xl w-full mx-auto px-6">
-
             <div class="max-w-4xl mx-auto">
 
-                <form method="POST" action="/.netlify/functions/submit-comment"
-                    class="border border-emerald-500/20 p-8">
+                <!-- Title -->
+                <h2 class="font-aghram text-3xl md:text-5xl text-[var(--cw-green)] text-center mb-14" data-aos="fade-up"
+                    data-aos-duration="1100">
+                    Comments
+                </h2>
+
+                <!-- Form -->
+                <form method="POST" action="/.netlify/functions/submit-comment" class="space-y-10">
                     <input type="hidden" name="slug" value="winter-gathering" />
                     <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off" />
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                        <div>
-                            <label class="block font-catamaran text-sm text-gray-400 mb-2">Name</label>
-                            <input type="text" name="name" required
-                                class="w-full  border border-emerald-500/30 px-4 py-3 text-gray-200 outline-none focus:border-emerald-400 transition" />
-                        </div>
-
-                        <div>
-                            <label class="block font-catamaran text-sm text-gray-400 mb-2">Email (optional)</label>
-                            <input type="email" name="email"
-                                class="w-full  border border-emerald-500/30 px-4 py-3 text-gray-200 outline-none focus:border-emerald-400 transition" />
-                        </div>
+                    <!-- Name -->
+                    <div>
+                        <label class="block font-catamaran text-[var(--cw-green)] mb-3">
+                            Name
+                        </label>
+                        <input type="text" name="name" required placeholder="Name" class="w-full bg-[#615b5b] border border-[var(--cw-green)] px-5 py-4 text-gray-100
+                        outline-none focus:border-emerald-300 transition placeholder:text-gray-300/70" />
                     </div>
 
-                    <div class="mb-8">
-                        <label class="block font-catamaran text-sm text-gray-400 mb-2">Comment</label>
-                        <textarea name="comment" rows="6" required
-                            class="w-full  border border-emerald-500/30 px-4 py-3 text-gray-200 outline-none focus:border-emerald-400 transition"></textarea>
+                    <!-- Email (optional) -->
+                    <div>
+                        <label class="block font-catamaran text-[var(--cw-green)] mb-3">
+                            Email (optional)
+                        </label>
+                        <input type="email" name="email" placeholder="Email (optional)" class="w-full bg-[#615b5b] border border-[var(--cw-green)] px-5 py-4 text-gray-100
+                        outline-none focus:border-emerald-300 transition placeholder:text-gray-300/70" />
                     </div>
 
-                    <div class="text-center">
-                        <button type="submit"
-                            class="inline-flex items-center gap-3 border border-emerald-500 px-8 pb-4 pt-6 font-aghram text-[var(--cw-green)] hover:bg-emerald-500 hover:text-black transition">
-                            <!-- <i class="fa-solid fa-paper-plane"></i> -->
+                    <!-- Comment -->
+                    <div>
+                        <label class="block font-catamaran text-[var(--cw-green)] mb-3">
+                            Comment
+                        </label>
+                        <textarea name="comment" rows="7" required placeholder="Leave a comment..." class="w-full bg-[#615b5b] border border-[var(--cw-green)] px-5 py-4 text-gray-100
+                           outline-none focus:border-emerald-300 transition placeholder:text-gray-300/70"></textarea>
+                    </div>
+
+                    <!-- Button -->
+                    <div class="text-center pt-2">
+                        <button type="submit" class="inline-flex items-center gap-3 border border-[var(--cw-green)] px-10 pb-4 pt-6
+                         font-aghram text-[var(--cw-green)] hover:bg-[var(--cw-green)] hover:text-black transition">
                             Post Comment
                         </button>
                     </div>
                 </form>
 
+                <!-- Responses header -->
                 <h2 class="font-aghram text-2xl text-[var(--cw-green)] md:mt-28 mt-16 text-center" data-aos="fade-up"
                     data-aos-duration="1000">
                     Responses
                 </h2>
 
-                <div id="comments" class="space-y-8 mt-10">
-
-                </div>
-
-
-
+                <div id="comments" class="mt-12 space-y-20"></div>
 
             </div>
-
         </div>
     </section>
+
 
 
 
@@ -246,26 +254,43 @@
                 const comments = await res.json();
                 if (!Array.isArray(comments) || comments.length === 0) return;
 
-                commentsContainer.innerHTML = `
-        <h3 class="font-aghram text-3xl text-[var(--cw-green)] mb-8">
-          
-        </h3>
-      `;
-
                 comments.forEach(comment => {
                     const el = document.createElement("div");
-                    el.className = "border border-emerald-500/20 p-6";
+                    el.className = "relative";
+
+                    const dateText = new Date(comment.createdAt).toLocaleString(undefined, {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                        hour: "numeric",
+                        minute: "2-digit",
+                        second: "2-digit",
+                        timeZoneName: "short"
+                    });
 
                     el.innerHTML = `
-          <div class="flex items-center justify-between mb-3">
-            <p class="font-aghram md:text-xl leading-[2] text-[var(--cw-green)]">${comment.name}</p>
-            <span class="text-sm text-gray-400">
-              ${new Date(comment.createdAt).toLocaleDateString()}
-            </span>
+          <div class="flex relative items-start gap-4">
+            <!-- bubble icon -->
+            <div class="absolute -top-7 -left-3 text-[#fffef8]">
+              <i class="fa-regular fa-comment-dots text-2xl"></i>
+            </div>
+
+            <div class="w-full border-l-2 border-[var(--cw-green)] pl-6">
+              <p class="font-aghram md:text-xl leading-[1.2] text-[var(--cw-green)]">
+                ${comment.name}
+              </p>
+              <p class="font-catamaran text-sm text-gray-400 mt-1">
+                ${dateText}
+              </p>
+
+              <!-- vertical line + comment text -->
+              <div class="mt-5 ">
+                <p class="font-catamaran text-[#fffef8] leading-relaxed text-lg">
+                  ${comment.comment}
+                </p>
+              </div>
+            </div>
           </div>
-          <p class="font-catamaran text-[#fffef8] leading-relaxed">
-            ${comment.comment}
-          </p>
         `;
 
                     commentsContainer.appendChild(el);
@@ -276,6 +301,7 @@
             }
         });
     </script>
+
 
     <script>
         document.addEventListener("DOMContentLoaded", async () => {
