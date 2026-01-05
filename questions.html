@@ -49,7 +49,7 @@
     <div id="loader"></div>
 
     <!-- Back to Top Button -->
- <button id="backToTop"
+    <button id="backToTop"
         class="fixed bottom-6 right-6 z-50 h-12 w-12 rounded-full bg-[#161414] text-[#8fc2a7] shadow-lg opacity-0 pointer-events-none translate-y-3 transition-all duration-300 hover:opacity-90">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
@@ -105,69 +105,69 @@
         </div>
     </section>
 
-    <section class="w-full  text-white py-28 md:pt-40">
+    <section class="w-full text-white py-28 md:pt-40">
         <div class="max-w-7xl w-full mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
 
-            <div class="max-w-3xl mx-auto">
+                <!-- Title -->
+                <!-- <h2 class="font-aghram text-4xl md:text-5xl text-[var(--cw-green)] text-center mb-14" data-aos="fade-up"
+                    data-aos-duration="1100">
+                    Questions
+                </h2> -->
 
-                <h2 class="font-aghram md:text-2xl text-[var(--cw-green)] mb-10 text-center" data-aos="fade-up"
-                    data-aos-duration="1000">
-                    Submit a Question
-                </h2>
-
-                <form method="POST" action="/.netlify/functions/submit-question"
-                    class="border border-emerald-500/20 p-8" data-aos="fade-up" data-aos-delay="150"
-                    data-aos-duration="1000">
+                <!-- Form -->
+                <form method="POST" action="/.netlify/functions/submit-question" class="space-y-10" data-aos="fade-up"
+                    data-aos-delay="150" data-aos-duration="1000">
 
                     <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off" />
 
-                    <div class="mb-8">
-                        <label class="block font-catamaran text-sm text-gray-400 mb-3">
+                    <!-- Question -->
+                    <div>
+                        <label class="block font-catamaran text-[var(--cw-green)] mb-3">
                             Your Question
                         </label>
-                        <textarea name="question" rows="6" required
-                            class="w-full  border border-emerald-500/30 px-4 py-3 text-gray-200 outline-none focus:border-emerald-400 transition"></textarea>
+                        <textarea name="question" rows="7" required placeholder="Ask anything..." class="w-full bg-[#615b5b] border border-emerald-400/60 px-5 py-4 text-gray-100
+                           outline-none focus:border-emerald-300 transition placeholder:text-gray-300/70"></textarea>
                     </div>
 
-                    <div class="mb-10">
-                        <label class="block font-catamaran text-sm text-gray-400 mb-3">
+                    <!-- Name -->
+                    <div>
+                        <label class="block font-catamaran text-[var(--cw-green)] mb-3">
                             Name (optional)
                         </label>
-                        <input type="text" name="name"
-                            class="w-full  border border-emerald-500/30 px-4 py-3 text-gray-200 outline-none focus:border-emerald-400 transition" />
+                        <input type="text" name="name" placeholder="Anonymous is fine" class="w-full bg-[#615b5b] border border-emerald-400/60 px-5 py-4 text-gray-100
+                        outline-none focus:border-emerald-300 transition placeholder:text-gray-300/70" />
                     </div>
 
-                    <div class="text-center">
-                        <button type="submit"
-                            class="inline-flex items-center gap-3 border border-emerald-500 px-10 pb-4 pt-6 font-aghram text-[var(--cw-green)] hover:bg-emerald-500 hover:text-black transition">
-                            <!-- <i class="fa-solid fa-paper-plane"></i> -->
+                    <!-- Button -->
+                    <div class="text-center pt-2">
+                        <button type="submit" class="inline-flex items-center gap-3 border border-emerald-500 px-10 pb-4 pt-6
+                         font-aghram text-[var(--cw-green)] hover:bg-emerald-500 hover:text-black transition">
                             Send Question
                         </button>
                     </div>
-
                 </form>
 
-
             </div>
-
         </div>
     </section>
 
 
-    <section class="w-full  text-white py-28 border-t border-emerald-500/20">
+    <section class="w-full text-white py-28 border-t border-emerald-500/20">
         <div class="max-w-7xl w-full mx-auto px-6">
-
             <div class="max-w-4xl mx-auto">
-                <h2 class="font-aghram md:text-2xl text-[var(--cw-green)] text-center mb-16" data-aos="fade-up"
+
+                <h2 class="font-aghram text-2xl md:text-3xl text-[var(--cw-green)] text-center mb-14" data-aos="fade-up"
                     data-aos-duration="1000">
                     Questions & Responses
                 </h2>
 
                 <div id="questionsList" class="space-y-12" data-aos="fade-up" data-aos-duration="1000"></div>
-            </div>
 
+            </div>
         </div>
     </section>
+
 
 
 
@@ -184,60 +184,73 @@
 
             const url = `/docs/questions/questions.json`;
 
+            function emptyState() {
+                container.innerHTML = `
+        <div class="border border-emerald-500/30 bg-black/20 p-8">
+          <p class="font-catamaran text-[#fffef8] text-lg leading-relaxed">
+            No questions yet. Be the first to ask something.
+          </p>
+        </div>
+      `;
+            }
+
             try {
                 const res = await fetch(url);
-                if (!res.ok) {
-                    container.innerHTML = `
-          <div class="border border-emerald-500/20 p-8">
-            <p class="font-catamaran text-[#fffef8]">
-              No questions yet. Be the first to ask something.
-            </p>
-          </div>
-        `;
-                    return;
-                }
+                if (!res.ok) return emptyState();
 
                 const data = await res.json();
-                if (!Array.isArray(data) || data.length === 0) {
-                    container.innerHTML = `
-          <div class="border border-emerald-500/20 p-8">
-            <p class="font-catamaran text-[#fffef8]">
-              No questions yet. Be the first to ask something.
-            </p>
-          </div>
-        `;
-                    return;
-                }
+                if (!Array.isArray(data) || data.length === 0) return emptyState();
 
-                data.slice().reverse().forEach((q) => {
+                container.innerHTML = "";
+
+                data.slice().reverse().forEach((q, idx) => {
                     const el = document.createElement("div");
-                    el.className = "border border-emerald-500/20 p-8";
+                    el.className = "border border-emerald-500/30 bg-black/20 p-8";
+
+                    const askedBy = escapeHtml(q.name || "Anonymous");
+                    const dateText = new Date(q.createdAt).toLocaleString(undefined, {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric"
+                    });
 
                     el.innerHTML = `
-          <p class="font-catamaran text-gray-400 text-sm mb-4">
-            Asked by ${escapeHtml(q.name || "Anonymous")} • ${new Date(q.createdAt).toLocaleDateString()}
-          </p>
-          <p class="font-catamaran text-lg text-gray-200 leading-relaxed mb-6">
-            ${escapeHtml(q.question)}
-          </p>
+          <!-- Header row -->
+          <div class="flex items-start gap-4">
+            <div class="mt-1 text-[var(--cw-green)]">
+              <i class="fa-regular fa-circle-question text-2xl"></i>
+            </div>
 
-          ${q.response && q.response.trim()
+            <div class="w-full">
+              <p class="font-catamaran text-sm text-gray-400">
+                Asked by <span class="text-gray-200">${askedBy}</span> · ${dateText}
+              </p>
+
+              <p class="font-catamaran text-[#fffef8] text-lg md:text-xl leading-relaxed mt-4">
+                ${escapeHtml(q.question)}
+              </p>
+
+              ${q.response && q.response.trim()
                             ? `
-              <div class="border-t border-emerald-500/20 pt-6">
-                <p class="font-aghram text-[var(--cw-green)] mb-3">Response</p>
-                <p class="font-catamaran text-[#fffef8] leading-relaxed">
-                  ${escapeHtml(q.response)}
-                </p>
-              </div>
-            `
+                    <div class="mt-6 border-l-2 border-emerald-500/60 pl-6">
+                      <p class="font-aghram text-[var(--cw-green)] mb-2">
+                        Response
+                      </p>
+                      <p class="font-catamaran text-[#fffef8] leading-relaxed">
+                        ${escapeHtml(q.response)}
+                      </p>
+                    </div>
+                  `
                             : `
-              <div class="border-t border-emerald-500/20 pt-6">
-                <p class="font-catamaran text-gray-500">
-                  Response coming soon.
-                </p>
-              </div>
-            `
+                    <div class="mt-6 border-l-2 border-emerald-500/40 pl-6">
+                      <p class="font-catamaran text-gray-500">
+                        Response coming soon.
+                      </p>
+                    </div>
+                  `
                         }
+            </div>
+          </div>
         `;
 
                     container.appendChild(el);
@@ -245,6 +258,8 @@
 
             } catch (e) {
                 console.error("Failed to load questions", e);
+                // Keep UI quiet, but show empty state
+                emptyState();
             }
         });
 
@@ -258,6 +273,7 @@
             }[m]));
         }
     </script>
+
 
 
 
