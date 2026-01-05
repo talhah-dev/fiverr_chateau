@@ -106,105 +106,114 @@
     </section>
 
 
-    <section class="w-full text-white py-24 md:pt-40">
-        <div class="max-w-7xl w-full mx-auto px-6">
+<section class="w-full text-white py-24 md:pt-40">
+  <div class="max-w-7xl w-full mx-auto px-6">
+    <div class="max-w-5xl mx-auto">
 
-            <div class="max-w-5xl mx-auto">
+      <div class="divide-y divide-emerald-500/20 border-t border-emerald-500/20">
 
-                <div class="flex items-center justify-between gap-6 mb-10" data-aos="fade-up" data-aos-duration="1000">
-                    <h2 class="font-aghram text-2xl md:text-4xl text-[var(--cw-green)]">
-                        Latest
-                    </h2>
-                    <!-- <div class="flex items-center gap-4 text-gray-400 text-sm font-catamaran">
-                        <span class="hidden sm:inline">Sort:</span>
-                        <a href="/thought.html" class="hover:text-[var(--cw-green)] transition">Newest</a>
-                        <span class="text-gray-700">/</span>
-                        <a href="/thought.html" class="hover:text-[var(--cw-green)] transition">Oldest</a>
-                    </div> -->
-                </div>
+        <!-- ITEM -->
+        <a href="/thought.html"
+           class="group block py-10"
+           data-aos="fade-up" data-aos-duration="1000">
+          <div class="grid grid-cols-1 md:grid-cols-[190px_1fr_auto] gap-6 md:gap-10 items-start">
 
-                <div class="divide-y divide-emerald-500/20 border-t border-emerald-500/20">
-
-                    <a href="/thought.html" class="group block py-8" data-aos="fade-up" data-aos-duration="1000">
-                        <div class="flex items-start gap-6">
-                            <div class="min-w-0 flex-1">
-                                <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-6">
-                                    <span class="font-catamaran text-sm text-gray-400">Jan 1, 2026</span>
-                                    <span class="text-gray-700">•</span>
-                                    <span class="font-catamaran text-sm text-gray-400">4 min read</span>
-                                    <span class="text-gray-700">•</span>
-                                    <span class="font-catamaran text-sm text-gray-400">#reflection</span>
-                                </div>
-                                <h3
-                                    class="font-aghram md:text-xl text-[var(--cw-green)] group-hover:text-emerald-200 leading-[2.5] transition">
-                                    On Quiet Mornings
-                                </h3>
-                                <p class="font-catamaran text-[#fffef8] leading-relaxed mt-5 max-w-3xl">
-                                    Some mornings feel like a blank page—no noise, no rush, just space to think.
-                                </p>
-                            </div>
-                            <div class="shrink-0 text-gray-500 group-hover:text-[var(--cw-green)] transition">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="/thought.html" class="group block py-8" data-aos="fade-up" data-aos-delay="120"
-                        data-aos-duration="1000">
-                        <div class="flex items-start gap-6">
-                            <div class="min-w-0 flex-1">
-                                <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-6">
-                                    <span class="font-catamaran text-sm text-gray-400">Dec 21, 2025</span>
-                                    <span class="text-gray-700">•</span>
-                                    <span class="font-catamaran text-sm text-gray-400">6 min read</span>
-                                    <span class="text-gray-700">•</span>
-                                    <span class="font-catamaran text-sm text-gray-400">#time</span>
-                                </div>
-                                <h3
-                                    class="font-aghram md:text-xl text-[var(--cw-green)] group-hover:text-emerald-200 leading-[2.5] transition">
-                                    A Note About Time
-                                </h3>
-                                <p class="font-catamaran text-[#fffef8] leading-relaxed mt-5 max-w-3xl">
-                                    Time moves differently when you stop trying to chase it.
-                                </p>
-                            </div>
-                            <div class="shrink-0 text-gray-500 group-hover:text-[var(--cw-green)] transition">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="/thought.html" class="group block py-8" data-aos="fade-up" data-aos-delay="240"
-                        data-aos-duration="1000">
-                        <div class="flex items-start gap-6">
-                            <div class="min-w-0 flex-1">
-                                <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-6">
-                                    <span class="font-catamaran text-sm text-gray-400">Dec 8, 2025</span>
-                                    <span class="text-gray-700">•</span>
-                                    <span class="font-catamaran text-sm text-gray-400">3 min read</span>
-                                    <span class="text-gray-700">•</span>
-                                    <span class="font-catamaran text-sm text-gray-400">#rituals</span>
-                                </div>
-                                <h3
-                                    class="font-aghram md:text-xl text-[var(--cw-green)] group-hover:text-emerald-200 leading-[2.5] transition">
-                                    The Beauty of Small Rituals
-                                </h3>
-                                <p class="font-catamaran text-[#fffef8] leading-relaxed mt-5 max-w-3xl">
-                                    Tea, a candle, a song—tiny rituals that quietly hold a day together.
-                                </p>
-                            </div>
-                            <div class="shrink-0 text-gray-500 group-hover:text-[var(--cw-green)] transition">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </div>
-                        </div>
-                    </a>
-
-                </div>
-
+            <!-- LEFT META (fixed gutter) -->
+            <div class="font-catamaran text-sm text-gray-400 space-y-2 md:pt-1">
+              <p class="whitespace-nowrap">Jan 1, 2026</p>
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="whitespace-nowrap">4 min read</span>
+                <span class="text-gray-700">•</span>
+                <span class="whitespace-nowrap">#reflection</span>
+              </div>
             </div>
 
-        </div>
-    </section>
+            <!-- MAIN -->
+            <div class="min-w-0">
+              <h3 class="font-aghram md:text-xl text-[var(--cw-green)] group-hover:text-emerald-200 leading-[2.2] transition">
+                On Quiet Mornings
+              </h3>
+              <p class="font-catamaran text-[#fffef8] leading-relaxed mt-4 max-w-3xl">
+                Some mornings feel like a blank page—no noise, no rush, just space to think.
+              </p>
+            </div>
+
+            <!-- ARROW -->
+            <div class="shrink-0 pt-1 text-gray-500 group-hover:text-[var(--cw-green)] transition md:pt-2">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+
+          </div>
+        </a>
+
+        <!-- ITEM -->
+        <a href="/thought.html"
+           class="group block py-10"
+           data-aos="fade-up" data-aos-delay="120" data-aos-duration="1000">
+          <div class="grid grid-cols-1 md:grid-cols-[190px_1fr_auto] gap-6 md:gap-10 items-start">
+
+            <div class="font-catamaran text-sm text-gray-400 space-y-2 md:pt-1">
+              <p class="whitespace-nowrap">Dec 21, 2025</p>
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="whitespace-nowrap">6 min read</span>
+                <span class="text-gray-700">•</span>
+                <span class="whitespace-nowrap">#time</span>
+              </div>
+            </div>
+
+            <div class="min-w-0">
+              <h3 class="font-aghram md:text-xl text-[var(--cw-green)] group-hover:text-emerald-200 leading-[2.2] transition">
+                A Note About Time
+              </h3>
+              <p class="font-catamaran text-[#fffef8] leading-relaxed mt-4 max-w-3xl">
+                Time moves differently when you stop trying to chase it.
+              </p>
+            </div>
+
+            <div class="shrink-0 pt-1 text-gray-500 group-hover:text-[var(--cw-green)] transition md:pt-2">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+
+          </div>
+        </a>
+
+        <!-- ITEM -->
+        <a href="/thought.html"
+           class="group block py-10"
+           data-aos="fade-up" data-aos-delay="240" data-aos-duration="1000">
+          <div class="grid grid-cols-1 md:grid-cols-[190px_1fr_auto] gap-6 md:gap-10 items-start">
+
+            <div class="font-catamaran text-sm text-gray-400 space-y-2 md:pt-1">
+              <p class="whitespace-nowrap">Dec 8, 2025</p>
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="whitespace-nowrap">3 min read</span>
+                <span class="text-gray-700">•</span>
+                <span class="whitespace-nowrap">#rituals</span>
+              </div>
+            </div>
+
+            <div class="min-w-0">
+              <h3 class="font-aghram md:text-xl text-[var(--cw-green)] group-hover:text-emerald-200 leading-[2.2] transition">
+                The Beauty of Small Rituals
+              </h3>
+              <p class="font-catamaran text-[#fffef8] leading-relaxed mt-4 max-w-3xl">
+                Tea, a candle, a song—tiny rituals that quietly hold a day together.
+              </p>
+            </div>
+
+            <div class="shrink-0 pt-1 text-gray-500 group-hover:text-[var(--cw-green)] transition md:pt-2">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
 
     <!-- <section class="w-full text-white py-20">

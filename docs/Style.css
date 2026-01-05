@@ -66,3 +66,33 @@ body {
   background-size: auto;
   color: var(--cw-cream);
 }
+
+/* GLightbox: remove gray background + prevent scrollbars + fit image */
+.glightbox-container .gslide-media,
+.glightbox-container .gslide-image,
+.glightbox-container .gslide-image .gslide-description,
+.glightbox-container .ginner-container {
+  background: transparent !important;
+}
+
+.glightbox-container .ginner-container {
+  overflow: hidden !important;
+}
+
+/* Center the image and make the container hug the image */
+.glightbox-container .gslide-image {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Prevent giant images from creating scrollbars */
+.glightbox-container .gslide-image img {
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: 92vw !important;
+  max-height: 92vh !important;
+  object-fit: contain !important;
+  background: transparent !important;
+}
